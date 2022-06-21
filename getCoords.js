@@ -56,12 +56,13 @@ const getWeatherData = async () => {
         const response = await fetch(urlToFetch);
         if(response.ok) {
             const jsonResponse = await response.json();
-            results = jsonResponse.current.temp;
+            weatherData = jsonResponse;
+            //jsonResponse.current.temp;
             // console.log(typeof jsonResponse);
             // const cityLat = jsonResponse[0]["lat"];
             // const cityLon = jsonResponse[0]["lon"];
 
-            return results;
+            return weatherData;
 
         }
     } catch(error) {
@@ -74,13 +75,16 @@ const getWeatherData = async () => {
 
 window.addEventListener("DOMContentLoaded", event => {
 
-    const div = document.getElementById("results");
+    const divCurrentTemp = document.getElementById("current-temp");
+    const divLocation = document.getElementById("location");
+    const divCurrentWeather = document.getElementById("current-weather");
     const cityInput = document.getElementById("city");
     const stateInput = document.getElementById("state");
     const btn = document.getElementById("search");
 
     cityInput.addEventListener("input", event => {
         city = event.target.value;
+
     });
 
     stateInput.addEventListener("input", event => {
@@ -92,7 +96,11 @@ window.addEventListener("DOMContentLoaded", event => {
     btn.addEventListener("click", event => {
         (async () => {
             await getWeatherData();
-            div.innerText = `temp in ${city} is ${results} ° F`;
+
+            divCurrentTemp.innerText = `${weatherData.current.temp}° F`;
+            divCurrentWeather.innerText = `${weatherData.current.weather[0].main}`;
+            divLocation.innerText = `${city}, ${stateCode}`;
+
         })();
     })
 
