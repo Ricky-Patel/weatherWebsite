@@ -11,11 +11,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="container">
+    <div id="top-bar">
         <input type="text" id="city" placeholder="enter city">
         <input type="text" id="state" placeholder="enter state">
         <button id="search">SEARCH</button>
-        <div id="results"></div>
+    </div>
+
+    <div id="container">
+        <div class="default-card-container">
+            <div class="location-and-temp">
+                <div id="location"></div>
+                <div id="current-weather"></div>
+                <div id="current-temp"></div>
+            </div>
+            <div class="hourly-cards"></div>
+            <div class="daily-cards"></div>
+        </div>
     </div>
 </body>
 </html>

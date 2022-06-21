@@ -1,8 +1,53 @@
 
 #container {
+    display: flex;
     height: 500px;
     width: 800px;
     margin: 200px auto;
     border: 2px solid lightblue;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+#location {
+    padding: 5px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#current-weather {
+    text-align: center;
+    padding: 2px;
+}
+
+#current-temp {
+    text-align: center;
+    font-size: 40px;
+    padding: 5px;
+}
+
+
+.default-card-container {
+    border: 1px solid red;
+    height: 460px;
+    width: 200px;
+    margin: 10px;
+
+}
+
+.location-and-temp {
+    border: 1px solid blue;
+    height: 140px;
+    width: 100%;
+}
+
+.hourly-cards {
+    border: 1px solid green;
+    height: 100px;
+}
+
+.daily-cards {
+    border: 1px solid black;
+    height: 215px;
 }
