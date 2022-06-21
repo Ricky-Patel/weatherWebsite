@@ -78,6 +78,9 @@ window.addEventListener("DOMContentLoaded", event => {
     const divCurrentTemp = document.getElementById("current-temp");
     const divLocation = document.getElementById("location");
     const divCurrentWeather = document.getElementById("current-weather");
+    const divWeatherDescription = document.getElementById("weather-description");
+    const divHourlyTime = document.getElementById("hourly-time");
+    const divHourlyTemp = document.getElementById("hourly-temp");
     const cityInput = document.getElementById("city");
     const stateInput = document.getElementById("state");
     const btn = document.getElementById("search");
@@ -99,7 +102,15 @@ window.addEventListener("DOMContentLoaded", event => {
 
             divCurrentTemp.innerText = `${weatherData.current.temp}° F`;
             divCurrentWeather.innerText = `${weatherData.current.weather[0].main}`;
+            divWeatherDescription.innerText = `${weatherData.current.weather[0].description}`;
+            let unixTimestamp = weatherData.hourly[0].dt;
+            console.log(unixTimestamp);
+            let date = new Date(unixTimestamp * 1e3);
+            divHourlyTime.innerText = date.toLocaleTimeString();
+            divHourlyTemp.innerText = `${weatherData.hourly[0].temp}`;
             divLocation.innerText = `${city}, ${stateCode}`;
+            //for hourly will need to create new divs in columns and allow scroll. each new div should be new hourly temp/data
+            // weatherData.hourly.forEach(hour => divHourlyTemp.innerText = `${hour.temp}`);
 
         })();
     })
