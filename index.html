@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="./config.js"></script>
     <script src="./eventHandlers.js"></script>
     <script src="./getCoords.js"></script>
@@ -18,19 +19,97 @@
     </div>
 
     <div id="container">
-        <div class="default-card-container">
+        <!-- <div class="default-card-container"> -->
             <div class="location-and-temp">
-                <div id="location"></div>
-                <div id="current-weather"></div>
-                <div id="weather-description"></div>
-                <div id="current-temp"></div>
+                <div id="date">Thursday 10:40PM</div>
+                <div id="location">Poughkeepse, NY</div>
+                <div id="weather-icon"><i class='bx bxs-sun'></i></div>
+                <div id="current-temp">50.6 °F</div>
+                <!-- <div id="current-weather">Cloudy</div> -->
+                <div id="weather-description">cloudy clouds</div>
             </div>
-            <div class="hourly-cards">
-                <div id="hourly-time"></div>
-                <div id="hourly-temp" class="h-card"></div>
+
+
+<!-- --------------------------HOURLY CARDS ------------------------ -->
+
+
+            <div id="hourly-cards">
+                <!-- <div class="hourly-card-container">
+                    <div id="hourly-time" class="h-card-top">5PM</div>
+                    <div class="h-card">69°F</div>
+                </div> -->
+
+
             </div>
-            <div class="daily-cards"></div>
-        </div>
+
+<!-- --------------------------DAILY CARDS ------------------------ -->
+
+<div class="daily-cards">
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+
+                <div class="d-card">
+                    <div id="day" class="d-card-top">Monday</div>
+                    <div id="daily-temp" class="d-temp">69°F</div>
+                    <div id="daily-icon" class="d-icon"><i class='bx bxs-sun'></i></div>
+                    <div id="daily-desc" class="d-desc">Rain</div>
+                    <div id="daily-min-max" class="d-min-max">50/74</div>
+                </div>
+            </div>
+        <!-- </div> -->
     </div>
 </body>
 </html>

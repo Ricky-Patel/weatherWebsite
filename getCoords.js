@@ -85,6 +85,10 @@ window.addEventListener("DOMContentLoaded", event => {
     const stateInput = document.getElementById("state");
     const btn = document.getElementById("search");
 
+    //attempt at hourly
+    const hourlyContainer = document.getElementById("hourly-cards");
+
+
     cityInput.addEventListener("input", event => {
         city = event.target.value;
 
@@ -101,16 +105,50 @@ window.addEventListener("DOMContentLoaded", event => {
             await getWeatherData();
 
             divCurrentTemp.innerText = `${weatherData.current.temp}° F`;
-            divCurrentWeather.innerText = `${weatherData.current.weather[0].main}`;
+            //divCurrentWeather.innerText = `${weatherData.current.weather[0].main}`;
             divWeatherDescription.innerText = `${weatherData.current.weather[0].description}`;
             let unixTimestamp = weatherData.hourly[0].dt;
             console.log(unixTimestamp);
+            console.log(weatherData.hourly.length);
             let date = new Date(unixTimestamp * 1e3);
-            divHourlyTime.innerText = date.toLocaleTimeString();
-            divHourlyTemp.innerText = `${weatherData.hourly[0].temp}`;
+            //divHourlyTime.innerText = date.toLocaleTimeString();
+            //divHourlyTemp.innerText = `${weatherData.hourly[0].temp}`;
             divLocation.innerText = `${city}, ${stateCode}`;
             //for hourly will need to create new divs in columns and allow scroll. each new div should be new hourly temp/data
             // weatherData.hourly.forEach(hour => divHourlyTemp.innerText = `${hour.temp}`);
+
+            //attempt at adding hourly cards
+            for(let i = 0; i < weatherData.hourly.length; i++) {
+                const hourlyDivTime = document.createElement('div');
+                const hourlyDivTemp = document.createElement('div');
+                const newHourlyContainer = document.createElement('div');
+
+                hourlyContainer.appendChild(newHourlyContainer);
+                newHourlyContainer.appendChild(hourlyDivTime);
+                newHourlyContainer.appendChild(hourlyDivTemp);
+                // hourlyDivTime.append(hourlyDivTemp);
+
+
+                let hUnixTimestamp = weatherData.hourly[i].dt;
+                let hRaw = new Date(hUnixTimestamp * 1e3);
+
+                let hTime = hRaw.toLocaleTimeString();
+                let hTemp = weatherData.hourly[i].temp;
+
+                newHourlyContainer.id = 'hourly-time-container-' + i;
+                newHourlyContainer.classList.add('h-card-container');
+
+
+                hourlyDivTime.id = 'hourly-time-' + i;
+                hourlyDivTime.classList.add('h-card-top');
+                hourlyDivTime.innerHTML = hTime;
+
+                hourlyDivTemp.id = 'hourly-temp-' + i;
+                hourlyDivTemp.classList.add('h-card');
+                hourlyDivTemp.innerHTML = hTemp;
+
+
+            }
 
         })();
     })

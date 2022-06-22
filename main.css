@@ -1,7 +1,7 @@
 
 #container {
-    display: flex;
-    height: 500px;
+    /* display: flex; */
+    height: auto;
     width: 800px;
     margin: 200px auto;
     border: 2px solid lightblue;
@@ -10,7 +10,13 @@
     align-items: center;
 }
 
+#date {
+    text-align: center;
+    width: 100%;
+}
+
 #location {
+    width: 100%;
     padding: 5px;
     text-align: center;
     text-transform: capitalize;
@@ -22,14 +28,29 @@
 }
 
 #weather-description {
+    padding: 5px;
+    margin-left: 140px;
     text-align: center;
+}
+
+#weather-icon {
+    border: 1px solid yellow;
+    text-align: center;
+    font-size: 100px;
+    width: 50%;
+    box-sizing: border-box;
 }
 
 #current-temp {
     text-align: center;
     font-size: 40px;
     padding: 5px;
+    width: 50%;
+    border: 1px solid red;
+    box-sizing: border-box;
 }
+
+/* hourly CSS below */
 
 
 .default-card-container {
@@ -41,25 +62,126 @@
 }
 
 .location-and-temp {
+    display: flex;
+    flex-wrap: wrap;
     border: 1px solid blue;
-    height: 140px;
+    height: auto;
     width: 100%;
 }
 
-.hourly-cards {
+
+
+
+
+
+
+/* HOURLY CSS below */
+
+#hourly-card-container {
+
+}
+
+#hourly-time {
+    font-size: 14px;
+    text-align: center;
+}
+
+#hourly-temp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#hourly-cards {
+    overflow-x: scroll;
+    display: flex;
     border: 1px solid green;
-    height: 100px;
 }
 
 .h-card {
-    height: 98px;
-    width: 40px;
-    border: 1px solid yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border: 1px solid darkmagenta;
+    text-align: center;
+}
+
+.h-card-top {
+    width: 80px;
+    border: 1px solid darkmagenta;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* DAILY CSS below */
+
+
+
+
+.daily-cards {
+    overflow-x: scroll;
+    display: flex;
+    border: 1px solid green;
+
+}
+
+.d-card {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 20px;
+    height: 215px;
+}
+
+.d-card-top {
+    width: 120px;
+    border: 1px solid darkmagenta;
+    text-align: center;
+}
+
+.d-temp {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.d-icon {
+    font-size: 80px;
+    text-align: center;
+}
+
+.d-desc {
+    font-size: 20px;
+    text-align: center;
+}
+
+.d-min-max {
+    font-size: 15px;
     text-align: center;
 }
 
 
-.daily-cards {
-    border: 1px solid black;
-    height: 215px;
-}
+/* SCROLL BAR CSS  */
+
+/* width */
+::-webkit-scrollbar {
+    height: 9px;
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
