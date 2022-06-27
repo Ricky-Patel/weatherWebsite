@@ -1,5 +1,6 @@
 import { addDailyCards } from "./addDailyData.js";
 import { addHourlyCards } from "/addHourlyData.js";
+import { addCurrentData } from "./addCurrentData.js";
 
 const myAPIKey = config.myAPIKey;
 const baseGeoUrl = 'http://api.openweathermap.org/geo/1.0/direct';
@@ -11,7 +12,6 @@ let city = '';
 let stateCode = '';
 const country = 'USA';
 const units = 'imperial';
-let results;
 
 // use input of the city,state to make a call to the geocoding API
 // return the lat, lon of the city,state
@@ -79,21 +79,20 @@ const getWeatherData = async () => {
 
 window.addEventListener("DOMContentLoaded", event => {
 
-    const divCurrentTemp = document.getElementById("current-temp");
-    const divLocation = document.getElementById("location");
-    const divWeatherDescription = document.getElementById("weather-description");
     const cityInput = document.getElementById("city");
     const stateInput = document.getElementById("state");
     const btn = document.getElementById("search");
 
 
+
     cityInput.addEventListener("input", event => {
         city = event.target.value;
-
+        return city;
     });
 
     stateInput.addEventListener("input", event => {
         stateCode = event.target.value;
+        return stateCode;
     });
 
 
@@ -102,16 +101,10 @@ window.addEventListener("DOMContentLoaded", event => {
         (async () => {
             let weatherData = await getWeatherData();
 
-            divCurrentTemp.innerText = `${weatherData.current.temp}° F`;
-            divWeatherDescription.innerText = `${weatherData.current.weather[0].description}`;
-            let unixTimestamp = weatherData.hourly[0].dt;
-            console.log(unixTimestamp);
-            console.log(weatherData.hourly.length);
 
 
-            divLocation.innerText = `${city}, ${stateCode}`;
-
-
+            addCurrentData(weatherData, city, stateCode);
+            console.log(city);
             addHourlyCards(weatherData);
             addDailyCards(weatherData);
 

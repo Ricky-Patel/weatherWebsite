@@ -1,3 +1,6 @@
+import { assignDay } from "./assignDay.js";
+
+
 export function addDailyCards(weatherData) {
     const dailyContainer = document.getElementById("daily-cards");
         //attempt at adding hourly cards
@@ -7,6 +10,7 @@ export function addDailyCards(weatherData) {
             const newDailyContainer = document.createElement('div');
             const dailyDivIcon = document.createElement('div');
             const dailyDivDesc =  document.createElement('div');
+
 
             dailyContainer.appendChild(newDailyContainer);
             newDailyContainer.append(dailyDivTime);
@@ -27,6 +31,8 @@ export function addDailyCards(weatherData) {
             console.log(dDay);
             let icon = weatherData.daily[i].weather[0].icon;
             let desc = weatherData.daily[i].weather[0].description;
+
+
 
             newDailyContainer.id = 'daily-time-container-' + i;
             newDailyContainer.classList.add('daily-card-container');
@@ -55,36 +61,7 @@ export function addDailyCards(weatherData) {
 
         }
 
-        function assignDay(numDay) {
-            let num = numDay;
-            let day = "skip case";
-            switch (num) {
-                case 0:
-                    day = "Sunday";
-                    break;
-                case 1:
-                    day = "Monday";
-                    break;
-                case 2:
-                    day = "Tuesday";
-                    break;
-                case 3:
-                    day = "Wednesday";
-                    break;
-                case 4:
-                    day = "Thursday";
-                    break;
-                case 5:
-                    day = "Friday";
-                    break;
-                case 6:
-                    day = "Saturday";
-                    break;
-        };
 
-        return day;
-
-    };
 
 
 }
