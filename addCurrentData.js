@@ -1,6 +1,6 @@
 import { assignDay } from "./assignDay.js";
 
-export function addCurrentData(weatherData, city, stateCode) {
+export function addCurrentData(weatherData, city, stateCode, userAddress) {
     const currentDate = document.getElementById("date");
     const divCurrentTemp = document.getElementById("current-temp");
     const divLocation = document.getElementById("location");
@@ -13,8 +13,13 @@ export function addCurrentData(weatherData, city, stateCode) {
     console.log(unixTimestamp);
     console.log(weatherData.hourly.length);
 
+    if(!city && !stateCode) {
+        divLocation.innerText = `${userAddress}`;
+    } else {
+        divLocation.innerText = `${city}, ${stateCode}`;
+    }
 
-    divLocation.innerText = `${city}, ${stateCode}`;
+
 
     let hUnixTimestamp = weatherData.daily[0].dt;
     //console.log(weatherData.daily[i].dt);
